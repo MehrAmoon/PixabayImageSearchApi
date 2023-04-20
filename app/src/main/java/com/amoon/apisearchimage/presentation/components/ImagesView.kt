@@ -53,9 +53,9 @@ fun ImagesView(
                     .fillMaxWidth()
                     .padding(8.dp)
             ) {
-
-               var tags = images.tags.toString().split(",").forEach { tagItem ->
-                    tagItem
+                var tags =""
+                    images.tags.toString().split(", ").forEach { tagItem ->
+                    tags+="#$tagItem "
                 }
                 images.tags?.let {
                     Text(

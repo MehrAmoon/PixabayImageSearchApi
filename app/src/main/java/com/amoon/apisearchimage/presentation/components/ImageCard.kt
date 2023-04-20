@@ -36,7 +36,12 @@ fun ImageCard(
     ) {
 
         Column() {
-            val image = images.webformatURL?.let { loadPicture(url = it, defaultImage = DEFAULT_IMAGE).value }
+            val image = images.webformatURL?.let {
+                loadPicture(
+                    url = it,
+                    defaultImage = DEFAULT_IMAGE
+                ).value
+            }
             image?.let { img ->
                 Image(
                     bitmap = img.asImageBitmap(),
@@ -61,18 +66,18 @@ fun ImageCard(
                         style = MaterialTheme.typography.h3
                     )
                 }
-                images.tags?.let {
-                    Text(
-                        text = it,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .wrapContentWidth(Alignment.Start),
-                        style = MaterialTheme.typography.h5
-                    )
+                var tags = ""
+                images.tags.toString().split(", ").forEach { tagItem ->
+                    tags += "#$tagItem "
                 }
+                Text(
+                    text = tags,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentWidth(Alignment.Start),
+                    style = MaterialTheme.typography.h5
+                )
             }
         }
     }
 }
-
-

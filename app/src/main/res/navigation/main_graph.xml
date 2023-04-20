@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/imageListFragment">
+
+    <fragment
+        android:id="@+id/imageListFragment"
+        android:name="com.amoon.apisearchimage.presentation.ui.images.ImagesListFargment"
+        android:label="ImagesListFargment">
+        <action
+            android:id="@+id/viewImage"
+            app:destination="@id/imageDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/imageDetailFragment"
+        android:name="com.amoon.apisearchimage.presentation.ui.imagesDetail.ImagesDetailFragment"
+        android:label="ImagesDetailFragment">
+    </fragment>
+</navigation>
